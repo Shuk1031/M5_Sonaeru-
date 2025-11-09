@@ -4,10 +4,10 @@ from pydantic import BaseModel
 from typing import Optional, Dict, Any
 from datetime import datetime
 
-API_KEY = os.getenv("API_KEY", "CHANGE_ME")
+API_KEY = os.getenv("API_KEY", "CHANGE_ME")  # M5側と同じ値に
 
 app = FastAPI(title="Sonaeru+ Ingest API")
-_latest: Dict[str, Any] = {}
+_latest: Dict[str, Any] = {}  # 開発中はここに保持（本番はDBへ）
 
 class Ingest(BaseModel):
     device_id: str
